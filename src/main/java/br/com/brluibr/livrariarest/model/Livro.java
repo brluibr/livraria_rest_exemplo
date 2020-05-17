@@ -30,8 +30,8 @@ public class Livro {
     @Column(nullable = false)
     private String isbn;
 
-    @Column(name = "nome_autor", nullable = false)
-    private String nomeAutor;
+    @Column(nullable = false)
+    private String editora;
 
     @ManyToOne(fetch = FetchType.LAZY
             , cascade = {CascadeType.PERSIST
