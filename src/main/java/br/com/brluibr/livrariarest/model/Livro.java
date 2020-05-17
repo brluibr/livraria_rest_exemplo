@@ -32,12 +32,4 @@ public class Livro {
 
     @Column(nullable = false)
     private String editora;
-
-    @ManyToOne(fetch = FetchType.LAZY
-            , cascade = {CascadeType.PERSIST
-            , CascadeType.MERGE
-            , CascadeType.REMOVE})
-    @JoinColumn(name = "autor_id")
-    private Autor autor;
-
 }

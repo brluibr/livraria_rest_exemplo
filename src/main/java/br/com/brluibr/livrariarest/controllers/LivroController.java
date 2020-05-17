@@ -4,10 +4,7 @@ import br.com.brluibr.livrariarest.dto.LivroDTO;
 import br.com.brluibr.livrariarest.dto.MessagemRespostaDTO;
 import br.com.brluibr.livrariarest.service.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -21,5 +18,10 @@ public class LivroController {
     @PostMapping
     public MessagemRespostaDTO cadastrar(@RequestBody @Valid LivroDTO livroDTO){
         return livroService.cadastrar(livroDTO);
+    }
+
+    @GetMapping("/{id}")
+    public LivroDTO buscarPorId(@PathVariable Long id){
+        return livroService.buscarPorId(id);
     }
 }

@@ -8,6 +8,8 @@ import br.com.brluibr.livrariarest.repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class LivroService {
 
@@ -26,4 +28,8 @@ public class LivroService {
                 .build();
     }
 
+    public LivroDTO buscarPorId (Long id) {
+        Optional<Livro> optionalLivro = livroRepository.findById(id);
+        return livroMapper.toDTO(optionalLivro.get());
+    }
 }
